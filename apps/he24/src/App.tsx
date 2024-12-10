@@ -12,7 +12,7 @@ function App() {
         solution.real_solution(24,[data[0],data[1],data[2],data[3]])
         if (solution.result_list?.length) {
 
-            setResult(solution.result_list.map(it => solution.map_str(it)))
+            setResult(Array.from(new Set(solution.result_list.map(it => solution.map_str(it)))))
         } else {
             setResult(['no solution'])
         }

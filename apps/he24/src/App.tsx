@@ -9,7 +9,7 @@ function App() {
 
     function handleOkButton() {
         const solution = new Solution()
-        solution.real_solution(24,[data[0],data[1],data[2],data[3]])
+        solution.real_solution(24,[Number(data[0]),Number(data[1]),Number(data[2]),Number(data[3])])
         if (solution.result_list?.length) {
 
             setResult(Array.from(new Set(solution.result_list.map(it => solution.map_str(it)))))

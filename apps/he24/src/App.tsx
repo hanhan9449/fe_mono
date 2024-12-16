@@ -10,9 +10,9 @@ function App() {
     function handleOkButton() {
         const solution = new Solution()
         solution.real_solution(24,[Number(data[0]),Number(data[1]),Number(data[2]),Number(data[3])])
-        if (solution.result_list?.length) {
+        if (solution.result_list2?.length) {
 
-            setResult(Array.from(new Set(solution.result_list.map(it => solution.map_str(it)))))
+            setResult(Array.from(new Set(solution.result_list2.map(it => solution.map_str_v2(it)))))
         } else {
             setResult(['no solution'])
         }

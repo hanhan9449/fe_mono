@@ -5,9 +5,10 @@ describe('ability', () => {
     function test_he24(a: number,b: number,c: number,d: number) {
         const solution = new Solution()
         solution.real_solution(24,[a,b,c,d])
-        expect(solution.result_list.length > 0).equal(true)
-        for (const item of solution.result_list) {
-            expect(solution.equal(eval(solution.map_str(item)),24)).equal(true)
+        // console.log(solution.result_list2)
+        expect(solution.result_list2.length > 0).equal(true)
+        for (const item of solution.result_list2) {
+            expect(solution.equal(eval(solution.map_str_v2(item)),24)).equal(true)
         }
     }
     test('simple work', () => {

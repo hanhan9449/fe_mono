@@ -1,5 +1,5 @@
 
-enum CalcOpEnum {
+export enum CalcOpEnum {
     ADD= 'add',
     MINUS = 'minus',
     MUL = 'mul',

@@ -1,5 +1,5 @@
 import {describe, expect, test} from "vitest";
-import {Solution, SolutionNode, suan_list} from "./index.ts";
+import {CalcOpEnum, Solution, SolutionNode, suan_list} from "./index.ts";
 
 describe('ability', () => {
     function test_he24(a: number,b: number,c: number,d: number) {
@@ -18,7 +18,7 @@ describe('ability', () => {
         test_he24(1,1,1,12)
         test_he24(1,1,1,13)
     })
-    test.skip('work', () => {
+    test('work', () => {
         test_he24(4,4,4,4)
         test_he24(2,2,5,5)
         test_he24(1,2,3,4)
@@ -45,7 +45,7 @@ describe('SolutionNode', () => {
         const solutionNode = new SolutionNode()
         solutionNode.left = new SolutionNode(3)
         solutionNode.right = new SolutionNode(4)
-        solutionNode.op = suan_list.find(it => it.label = 'add')
+        solutionNode.op = suan_list.find(it => it.label = CalcOpEnum.ADD)
         expect(solutionNode.getResult()).equal(7)
     })
 })

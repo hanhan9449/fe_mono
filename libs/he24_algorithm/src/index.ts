@@ -1,10 +1,10 @@
-
 export enum CalcOpEnum {
-    ADD= 'add',
+    ADD = 'add',
     MINUS = 'minus',
     MUL = 'mul',
     DIV = 'div'
 }
+
 function mapStr(left: string, right: string, label: CalcOpEnum) {
     let big = left
     let small = right
@@ -14,23 +14,27 @@ function mapStr(left: string, right: string, label: CalcOpEnum) {
         [CalcOpEnum.MUL]: '*',
         [CalcOpEnum.DIV]: '/',
     }
+
     function opCount(s: string) {
         const matched = s.matchAll(/[-+*\/]/g)
         return [...matched].length
     }
+
     if ([CalcOpEnum.ADD, CalcOpEnum.MUL].includes(label)) {
         [big, small] = [big, small].sort((a, b) => a < b ? 1 : -1)
-        if (opCount(left) < opCount(right)) {
-            [big, small] = [small, big]
-        }
+        // if (opCount(left) < opCount(right)) {
+        //     [big, small] = [small, big]
+        // }
 
     }
+
     function wrap(s: string) {
         if (opCount(s) > 0) {
-            return `(${s})`
+            return `${s}`
         }
         return s
     }
+
     big = wrap(big)
     small = wrap(small)
     switch (label) {
@@ -44,17 +48,21 @@ function mapStr(left: string, right: string, label: CalcOpEnum) {
     }
 
 }
+
 export const suan_list = [
 
     {
         label: CalcOpEnum.ADD, suan: (left: number, right: number) => {
             return left + right
-        }, map_str: (left: any, right: any) => `(${left} + ${right})`
+        }, map_str: (left: any, right: any) => `${left} + ${right}`,
+
+        priority: 10,
     },
     {
         label: CalcOpEnum.MINUS, suan: (left: number, right: number) => {
             return left - right
-        }, map_str: (left: any, right: any) => `(${left} - ${right})`
+        }, map_str: (left: any, right: any) => `${left} - ${right}`,
+        priority: 15,
     },
     // {
     //     label: 'minus-revert', suan: (left: number, right: number) => {
@@ -64,12 +72,14 @@ export const suan_list = [
     {
         label: CalcOpEnum.MUL, suan: (left: number, right: number) => {
             return left * right
-        }, map_str: (left: any, right: any) => `(${left} * ${right})`
+        }, map_str: (left: any, right: any) => `${left} * ${right}`,
+        priority: 25,
     },
     {
         label: CalcOpEnum.DIV, suan: (left: number, right: number) => {
             return left / right
-        }, map_str: (left: any, right: any) => `(${left} / ${right})`
+        }, map_str: (left: any, right: any) => `${left} / ${right}`,
+        priority: 25
     },
     // {
     //     label: 'div-revert', suan: (left: number, right: number) => {
@@ -81,15 +91,8 @@ export const suan_list = [
 
 export class Solution {
     private target = 24
-    /**
-     * @deprecated
-     */
-    used: { index: number, label: string }[] = []
-    /**
-     * @deprecated
-     */
-    result_list: { index: number, label: string }[][] = []
-     result_list2: SolutionNode[] = []
+
+    result_list2: SolutionNode[] = []
 
     equal(a: number, b: number) {
         if (Math.abs(a - b) < 0.00001) {
@@ -109,7 +112,6 @@ export class Solution {
         this.solution2(nums.map(it => new SolutionNode(it)))
 
     }
-
 
 
     private solution2(nums: SolutionNode[]) {
@@ -141,7 +143,10 @@ export class Solution {
 
                         const currentResult = result.getResult()
                         if (this.equal(this.target, currentResult)) {
-
+                            if (this.str_list.has(this.map_str_v2(result))) {
+                                return
+                            }
+                            this.str_list.add(this.map_str_v2(result))
                             this.result_list2.push(result)
                         }
                     }
@@ -151,7 +156,7 @@ export class Solution {
         }
     }
 
-
+    public str_list: Set<string> = new Set()
 
     map_str_v2(it: SolutionNode) {
         return it.getPrintStr()
@@ -184,13 +189,37 @@ export class SolutionNode {
         }
         return this.calc_result
     }
-    getPrintStr(): string {
+    isPureNumber() {
+        return !this.left && !this.right && !this.op
+    }
+    getOpPriority() {
+        return this.op?.priority || 100
+    }
+
+    getShouldUseQuote() {
+        const currentPriority = this.getOpPriority()
+        const leftPriority = this.left!.getOpPriority()
+        let rightPriority = this.right!.getOpPriority()
+        if (this?.op?.label === CalcOpEnum.DIV ) {
+            rightPriority --
+        }
+        return {
+            left: currentPriority > leftPriority,
+            right: currentPriority > rightPriority
+        }
+
+    }
+
+    getPrintStr(needQuote?: boolean): string {
         if (!this.left || !this.right || !this.op) {
             return String(this.result)
         }
         if (!this.calc_print_str) {
-            this.calc_print_str = mapStr(this.left.getPrintStr(), this.right.getPrintStr(), this.op.label)
-
+            const {left, right} = this.getShouldUseQuote()
+            this.calc_print_str = mapStr(this.left.getPrintStr(left), this.right.getPrintStr(right), this.op.label)
+            if (needQuote) {
+                this.calc_print_str = `(${this.calc_print_str})`
+            }
         }
         return this.calc_print_str
 

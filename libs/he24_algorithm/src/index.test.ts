@@ -7,8 +7,10 @@ describe('ability', () => {
         solution.real_solution(24,[a,b,c,d])
         // console.log(solution.result_list2)
         expect(solution.result_list2.length > 0).equal(true)
-        for (const item of solution.result_list2) {
-            expect(solution.equal(eval(solution.map_str_v2(item)),24)).equal(true)
+        for (const str of solution.str_list) {
+
+            console.log(str)
+            expect(solution.equal(eval(str),24)).equal(true)
         }
     }
     test('simple work', () => {

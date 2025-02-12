@@ -1,0 +1,15 @@
+.content-outer {
+    padding: 20px;
+}
+.content {
+    position: relative;
+    width: 100%;
+    background: gray;;
+    display: flex;
+    align-items: center;;
+    overflow: hidden;
+    --content-width: 100%;
+    --content-height: 100%;
+    --item-width: 30;
+    height: calc(var(--item-width) * 1px);
+}

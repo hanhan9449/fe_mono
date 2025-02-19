@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@hanhan9449/rxshow-hooks": "workspace:*",
+    "@hanhan9449/common-types": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "rxjs": "^7.8.1"

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prettier": "pnpx prettier . --write"
   },
   "keywords": [],
   "author": "",

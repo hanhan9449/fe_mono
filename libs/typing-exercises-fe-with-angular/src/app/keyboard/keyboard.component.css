@@ -1,0 +1,21 @@
+.container {
+  background-color: var(--hhkb-keyboard-bg-color);
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.line {
+  display: flex;
+  justify-content: center;
+}
+
+.last-line {
+
+}
+.logo {
+  margin-left: 17px;
+  margin-right: -26px;
+  filter: contrast(0) brightness(.9) grayscale(1);
+}

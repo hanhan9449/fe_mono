@@ -1,0 +1,20 @@
+.container {
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.grey {
+  background-color: var(--hhkb-keyboard-key-grey-color);
+}
+.milk-white {
+  background-color: var(--hhkb-keyboard-key-milk-white-color);
+}
+
+.one-line {
+  display: flex;
+  align-items: center;
+}
+
+.active.active {
+  background-color: rgba(0, 0, 0, 0.5);
+}

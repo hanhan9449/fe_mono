@@ -15,15 +15,14 @@ import svelte from "@astrojs/svelte";
 
 import netlify from "@astrojs/netlify";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    mdx(),
-    // alpinejs(),
-    // preact(),
-    react(),
-    solidJs(),
-    // svelte()
-  ],
+  integrations: [mdx(), // alpinejs(),
+  // preact(),
+  react(), // svelte()
+  solidJs(), sitemap()],
   adapter: netlify(),
+  site: 'https://next.hanhan9449.top'
 });

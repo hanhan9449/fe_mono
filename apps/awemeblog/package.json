@@ -27,6 +27,7 @@
     "react-dom": "^19.0.0",
     "solid-js": "^1.9.5",
     "svelte": "^5.22.6",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "@hanhan9449/solid-component": "workspace:*"
   }
 }

@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --hhkb-keyboard-bg-color: rgb(218, 216, 206);
+  --hhkb-keyboard-key-milk-white-color: rgb(182, 180, 170);
+  --hhkb-keyboard-key-grey-color: rgb(158, 161, 155);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle, rgb(250 240 230 /1), rgb( 250 240 230 /.8))
+}

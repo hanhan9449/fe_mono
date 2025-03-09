@@ -1,0 +1,12 @@
+<div class="container" #container tabindex="-1" [ngClass]="{blur: !(focusState$|async)}" autofocus>
+
+  <ng-container *ngFor="let ch of testText.slice(start,end).split(''); index  as index" >
+    <app-caret *ngIf="index == current"></app-caret>
+  <app-input-item [ch]="ch"
+                  [state]="getState(index)"></app-input-item>
+  </ng-container>
+</div>
+<div class="info-panel">
+
+<p *ngIf="!(focusState$|async)" class="info1">Click to activate...</p>
+</div>

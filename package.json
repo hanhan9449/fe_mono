@@ -7,6 +7,10 @@
     "prettier": "pnpx prettier . --write"
   },
   "keywords": [],
+  "packageManager": "pnpm@10.6.1",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "turbo": "^2.4.4"
+  }
 }

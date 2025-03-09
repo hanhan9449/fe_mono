@@ -1,6 +1,5 @@
 import {createEffect, createResource, Show, untrack} from "solid-js";
 import {toDataURL} from 'qrcode'
-import localStyle from './QrCode.module.pcss'
 
 interface QrCodeProps {
     value?: string | null

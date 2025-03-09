@@ -2,11 +2,9 @@ import type { Component } from "solid-js";
 import { QrCode } from "./QrCode";
 import { createSignal, onMount } from "solid-js";
 import copy from "copy-to-clipboard";
-import { mergeClasses } from "@hanhan9449/utils";
-import { atom } from "../atom-css";
 import {JBColumn, JBButton, JBTextarea, JBRow} from "@hanhan9449/solidjs-ui";
 import "@hanhan9449/solidjs-ui/style.css";
-import {toCanvas, toDataURL} from "qrcode";
+import styles from './QrCodeWithInput.module.pcss'
 
 export const QrCodeWithInput: Component = () => {
   const [input, setInput] = createSignal("");
@@ -21,21 +19,14 @@ export const QrCodeWithInput: Component = () => {
   let canvasEl = document.createElement('canvas')
   return (
     <div
-        class={mergeClasses(
-            atom.overflowAuto,
-            atom.paddingLeft12px
-        )}
+        class={styles.container}
     >
       <h2>二维码生成</h2>
         <JBColumn space={4}>
 
       <div>
         <JBTextarea
-          class={mergeClasses(
-            atom.width500px,
-            atom.fontSize20px,
-            atom.fontFamilySanSerif
-          )}
+          class={styles.textarea}
           value={input()}
           onInput={(e) => {
             setInput(e.target.value);

@@ -1,1 +1,1 @@
-export {default as atom} from './atom-css.module.css'
+export { default as atom } from "./atom-css.module.css";

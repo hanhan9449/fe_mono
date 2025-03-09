@@ -17,6 +17,12 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), alpinejs(), preact(), react(), solidJs(), svelte()],
+  integrations: [mdx(),
+    // alpinejs(),
+    // preact(),
+    react(),
+    solidJs(),
+    // svelte()
+  ],
   adapter: netlify()
 });

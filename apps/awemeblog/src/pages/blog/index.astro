@@ -1,0 +1,16 @@
+---
+import {getCollection, render} from 'astro:content';
+
+const mdxs = await getCollection('mdx')
+---
+<ul>
+
+
+    {mdxs.map(it => (
+            <li><a href={'/blog/' + it.id}>
+                {it.data.title}
+            </a>
+
+            </li>
+    ))}
+</ul>

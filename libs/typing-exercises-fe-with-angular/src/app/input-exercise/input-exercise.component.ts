@@ -25,9 +25,10 @@ import {
 import { SpeedCountService } from '../speed-count/speed-count.service';
 
 @Component({
-  selector: 'app-input-exercise',
-  templateUrl: './input-exercise.component.html',
-  styleUrls: ['./input-exercise.component.css'],
+    selector: 'app-input-exercise',
+    templateUrl: './input-exercise.component.html',
+    styleUrls: ['./input-exercise.component.css'],
+    standalone: false
 })
 export class InputExerciseComponent
   implements OnInit, AfterViewChecked, AfterViewInit

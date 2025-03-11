@@ -7,9 +7,10 @@ import {
 import { KeyboardItemInterface } from '../keyboard-item/keyboard-item.interface';
 
 @Component({
-  selector: 'app-keyboard',
-  templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.css'],
+    selector: 'app-keyboard',
+    templateUrl: './keyboard.component.html',
+    styleUrls: ['./keyboard.component.css'],
+    standalone: false
 })
 export class KeyboardComponent implements OnInit {
   constructor() {}

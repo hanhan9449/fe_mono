@@ -15,9 +15,10 @@ import {
 } from 'rxjs';
 
 @Component({
-  selector: 'app-keyboard-item',
-  templateUrl: './keyboard-item.component.html',
-  styleUrls: ['./keyboard-item.component.css'],
+    selector: 'app-keyboard-item',
+    templateUrl: './keyboard-item.component.html',
+    styleUrls: ['./keyboard-item.component.css'],
+    standalone: false
 })
 export class KeyboardItemComponent implements OnInit, OnDestroy {
   @Input() line1?: string = '';

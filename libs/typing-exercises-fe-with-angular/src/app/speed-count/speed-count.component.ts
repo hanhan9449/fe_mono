@@ -3,9 +3,10 @@ import { SpeedCountService } from './speed-count.service';
 import { map, Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-speed-count',
-  templateUrl: './speed-count.component.html',
-  styleUrls: ['./speed-count.component.css'],
+    selector: 'app-speed-count',
+    templateUrl: './speed-count.component.html',
+    styleUrls: ['./speed-count.component.css'],
+    standalone: false
 })
 export class SpeedCountComponent implements OnInit {
   timer$?: Observable<number>;

@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { InputItemStateType } from './input-item-state.type';
 
 @Component({
-  selector: 'app-input-item',
-  templateUrl: './input-item.component.html',
-  styleUrls: ['./input-item.component.css'],
+    selector: 'app-input-item',
+    templateUrl: './input-item.component.html',
+    styleUrls: ['./input-item.component.css'],
+    standalone: false
 })
 export class InputItemComponent implements OnInit {
   @Input() ch!: string;

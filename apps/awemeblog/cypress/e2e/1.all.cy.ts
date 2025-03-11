@@ -29,7 +29,7 @@ describe('example to-do app', () => {
     it('blog tools qrcode', () => {
         cy.visit('/tools/qrcode')
             .get('body').should('contain', '二维码生成')
-            .get('textarea[data-test-id="JBTextarea"]').should('be.visible').type('hello world')
+            .get('textarea').should('be.visible').type('hello world')
             .get('canvas').should('exist')
     })
     it('blog tools typing exercises', () => {

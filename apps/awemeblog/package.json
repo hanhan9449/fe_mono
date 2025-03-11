@@ -7,6 +7,9 @@
     "build": "astro build",
     "check-types": "tsc --noEmit",
     "preview": "astro preview",
+    "test:e2e": "cypress run",
+    "test:ci": "start-server-and-test dev http://localhost:4321 test:e2e",
+    "cy:open": "cypress open",
     "astro": "astro"
   },
   "dependencies": {
@@ -31,5 +34,9 @@
     "solid-js": "^1.9.5",
     "svelte": "^5.22.6",
     "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "cypress": "^14.1.0",
+    "start-server-and-test": "^2.0.10"
   }
 }

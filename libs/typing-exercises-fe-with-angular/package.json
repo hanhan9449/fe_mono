@@ -9,7 +9,7 @@
     "test": "ng test"
   },
   "exports": {
-    "./files/*": "./dist/typing-exercises-fe-with-angular/*"
+    "./files/*": "./dist/typing-exercises-fe-with-angular/browser/*"
   },
   "dependencies": {
     "@angular/animations": "^19.2.1",

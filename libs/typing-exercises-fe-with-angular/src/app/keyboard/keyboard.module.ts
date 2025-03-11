@@ -6,15 +6,15 @@ import {KeyboardItemComponent} from "../keyboard-item/keyboard-item.component";
 
 @NgModule({
   declarations: [
-    KeyboardComponent,
-    KeyboardItemComponent
+
   ],
   exports: [
     KeyboardComponent,
     KeyboardItemComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,KeyboardComponent,
+    KeyboardItemComponent
   ],
 })
 export class KeyboardModule {

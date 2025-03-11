@@ -23,12 +23,22 @@ import {
   tap,
 } from 'rxjs';
 import { SpeedCountService } from '../speed-count/speed-count.service';
+import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import {CaretComponent} from "../caret/caret.component";
+import {InputItemComponent} from "../input-item/input-item.component";
 
 @Component({
-    selector: 'app-input-exercise',
-    templateUrl: './input-exercise.component.html',
-    styleUrls: ['./input-exercise.component.css'],
-    standalone: false
+  selector: 'app-input-exercise',
+  templateUrl: './input-exercise.component.html',
+  imports: [
+    NgClass,
+    AsyncPipe,
+    CaretComponent,
+    InputItemComponent,
+    NgForOf,
+    NgIf
+  ],
+  styleUrls: ['./input-exercise.component.css']
 })
 export class InputExerciseComponent
   implements OnInit, AfterViewChecked, AfterViewInit

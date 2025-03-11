@@ -5,8 +5,8 @@ import { InputItemComponent } from '../input-item/input-item.component';
 import { CaretComponent } from '../caret/caret.component';
 
 @NgModule({
-  declarations: [InputExerciseComponent, InputItemComponent, CaretComponent],
+  declarations: [],
   exports: [InputExerciseComponent],
-  imports: [CommonModule],
+  imports: [CommonModule,InputExerciseComponent, InputItemComponent, CaretComponent],
 })
 export class InputExerciseModule {}

@@ -11,8 +11,9 @@ import { environment } from '../environments/environment';
 import {createCustomElement} from "@angular/elements";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [],
   imports: [
+      AppComponent,
     BrowserModule,
     KeyboardModule,
     InputExerciseModule,

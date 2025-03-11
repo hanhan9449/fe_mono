@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, inject, viewChild } from '@angular/core';
 import { InputItemStateType } from '../input-item/input-item-state.type';
 import { KeyboardService } from '../keyboard/keyboard.service';
 import {
@@ -38,7 +38,7 @@ export class InputExerciseComponent
   private speedCountService = inject(SpeedCountService);
 
 
-  @ViewChild('container') container?: ElementRef<HTMLDivElement>;
+  readonly container = viewChild<ElementRef<HTMLDivElement>>('container');
 
   testText =
     'Once upon a time there was a sweet little girl. Everyone who saw her liked her, but most of all her grandmother, who did not know what to give the child next. Once she gave her a little cap made of red velvet. Because it suited her so well, and she wanted to wear it all the time, she came to be known as Little Red Riding Hood. One day her mother said to her: "Come Little Red Riding Hood. Here is a piece of cake and a bottle of wine. Take them to your grandmother. She is sick and weak, and they will do her well. Mind your manners and give her my greetings. Behave yourself on the way, and do not leave the path, or you might fall down and break the glass, and then there will be nothing for your sick grandmother."';
@@ -63,9 +63,10 @@ export class InputExerciseComponent
   ngOnInit(): void {}
 
   initInputFocusLogic(): void {
-    if (this.container) {
-      const inputFocus$ = fromEvent(this.container.nativeElement, 'focus');
-      const inputBlur$ = fromEvent(this.container.nativeElement, 'blur');
+    const container = this.container();
+    if (container) {
+      const inputFocus$ = fromEvent(container.nativeElement, 'focus');
+      const inputBlur$ = fromEvent(container.nativeElement, 'blur');
       this.focusState$ = inputFocus$.pipe(
         map((_) => true),
         mergeWith(inputBlur$.pipe(map((_) => false)))

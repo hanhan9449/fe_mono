@@ -6,7 +6,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Install pnpm
+        run: npm i -g pnpm
+      - name: Install Deps
+        run: pnpm i
+      - name: Run E2E Tests
+        run: npx turbo test:ci

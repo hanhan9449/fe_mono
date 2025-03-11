@@ -8,6 +8,8 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "test:ci": {
+    },
     "dev": {
       "persistent": true,
       "cache": false

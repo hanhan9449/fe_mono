@@ -23,7 +23,7 @@ import {
   tap,
 } from 'rxjs';
 import { SpeedCountService } from '../speed-count/speed-count.service';
-import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import { AsyncPipe, NgClass } from "@angular/common";
 import {CaretComponent} from "../caret/caret.component";
 import {InputItemComponent} from "../input-item/input-item.component";
 
@@ -34,10 +34,8 @@ import {InputItemComponent} from "../input-item/input-item.component";
     NgClass,
     AsyncPipe,
     CaretComponent,
-    InputItemComponent,
-    NgForOf,
-    NgIf
-  ],
+    InputItemComponent
+],
   styleUrls: ['./input-exercise.component.css']
 })
 export class InputExerciseComponent

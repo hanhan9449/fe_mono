@@ -13,16 +13,15 @@ import {
   Subscription,
   tap,
 } from 'rxjs';
-import {AsyncPipe, NgClass, NgIf} from "@angular/common";
+import { AsyncPipe, NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-keyboard-item',
   templateUrl: './keyboard-item.component.html',
   imports: [
     NgClass,
-    AsyncPipe,
-    NgIf
-  ],
+    AsyncPipe
+],
   styleUrls: ['./keyboard-item.component.css']
 })
 export class KeyboardItemComponent implements OnInit, OnDestroy {

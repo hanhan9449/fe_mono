@@ -6,7 +6,7 @@ import {
 } from './keyboard.config';
 import { KeyboardItemInterface } from '../keyboard-item/keyboard-item.interface';
 import {KeyboardItemComponent} from "../keyboard-item/keyboard-item.component";
-import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
+import { AsyncPipe, NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-keyboard',
@@ -15,10 +15,8 @@ import {AsyncPipe, NgClass, NgForOf, NgIf} from "@angular/common";
   imports: [
     KeyboardItemComponent,
     NgClass,
-    AsyncPipe,
-    NgForOf,
-    NgIf
-  ],
+    AsyncPipe
+],
   standalone: true
 })
 export class KeyboardComponent implements OnInit {

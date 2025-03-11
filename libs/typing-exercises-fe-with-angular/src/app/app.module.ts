@@ -1,4 +1,4 @@
-import { Injector, NgModule, inject } from '@angular/core';
+import {Injector, NgModule, inject, provideExperimentalZonelessChangeDetection} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import {createCustomElement} from "@angular/elements";
 @NgModule({
   declarations: [],
   imports: [
+
     AppComponent,
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,7 +24,7 @@ import {createCustomElement} from "@angular/elements";
         registrationStrategy: 'registerWhenStable:30000'
     }),
 ],
-  providers: [],
+  providers: [provideExperimentalZonelessChangeDetection()],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -1,6 +1,8 @@
 <div [class]="getColor()" [ngClass]="{'one-line':!shouldShowLine2(), 'container': true, 'active': isActive$|async  }"
-     [style.width.px]="getWidth()"
-     [style.height.px]="getHeight()">
-  <div>{{line1}}</div>
-  <div *ngIf="shouldShowLine2()">{{line2}}</div>
+  [style.width.px]="getWidth()"
+  [style.height.px]="getHeight()">
+  <div>{{line1()}}</div>
+  @if (shouldShowLine2()) {
+    <div>{{line2()}}</div>
+  }
 </div>

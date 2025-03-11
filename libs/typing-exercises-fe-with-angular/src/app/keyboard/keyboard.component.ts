@@ -5,11 +5,19 @@ import {
   hhkbKeyboardConfig,
 } from './keyboard.config';
 import { KeyboardItemInterface } from '../keyboard-item/keyboard-item.interface';
+import {KeyboardItemComponent} from "../keyboard-item/keyboard-item.component";
+import { AsyncPipe, NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-keyboard',
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.css'],
+  imports: [
+    KeyboardItemComponent,
+    NgClass,
+    AsyncPipe
+],
+  standalone: true
 })
 export class KeyboardComponent implements OnInit {
   constructor() {}

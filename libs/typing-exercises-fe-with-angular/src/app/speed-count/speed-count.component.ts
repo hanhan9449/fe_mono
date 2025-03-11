@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { SpeedCountService } from './speed-count.service';
 import { map, Observable } from 'rxjs';
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'app-speed-count',
   templateUrl: './speed-count.component.html',
   styleUrls: ['./speed-count.component.css'],
+  imports: [
+    AsyncPipe
+  ],
+  standalone: true
 })
 export class SpeedCountComponent implements OnInit {
-  timer$?: Observable<number>;
+  private speedCountService = inject(SpeedCountService);
 
-  constructor(private speedCountService: SpeedCountService) {}
+  timer$?: Observable<number>;
 
   ngOnInit(): void {
     this.timer$ = this.getTimer$();

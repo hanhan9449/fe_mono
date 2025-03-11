@@ -1,14 +1,20 @@
 <div class="container" [style.gap.px]="getKeyboardGap$()">
-  <div *ngFor="let lines of getHHKBKeyboardConfig$()|async; index as index"
-       [class]="'line'"
-       [ngClass]="{'last-line': isLastLine(index)}"
-       [style.gap.px]="getKeyboardGap$()">
-    <app-keyboard-item *ngFor="let kii of lines" [variant]="kii.variant" [line1]="kii?.line1" [line2]="(kii)?.line2"
-                       [width]="kii.width ?? getDefaultWidth$()"
-                       [height]="kii.height ?? getDefaultHeight$()"
-                       [color]="kii.color"
-                       [flag]="kii.flag"
-    ></app-keyboard-item>
-    <div *ngIf="isLastLine(index) " class="logo"><img height="52" src='https://github.com/hanhan9449/images/blob/main/hhkb-logo.png?raw=true'></div>
-  </div>
+  @for (lines of getHHKBKeyboardConfig$()|async; track lines; let index = $index) {
+    <div
+      [class]="'line'"
+      [ngClass]="{'last-line': isLastLine(index)}"
+      [style.gap.px]="getKeyboardGap$()">
+      @for (kii of lines; track kii) {
+        <app-keyboard-item [variant]="kii.variant" [line1]="kii?.line1" [line2]="(kii)?.line2"
+          [width]="kii.width ?? getDefaultWidth$()"
+          [height]="kii.height ?? getDefaultHeight$()"
+          [color]="kii.color"
+          [flag]="kii.flag"
+        ></app-keyboard-item>
+      }
+      @if (isLastLine(index) ) {
+        <div class="logo"><img height="52" src='https://github.com/hanhan9449/images/blob/main/hhkb-logo.png?raw=true'></div>
+      }
+    </div>
+  }
 </div>

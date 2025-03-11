@@ -1,4 +1,4 @@
-import {Injector, NgModule} from '@angular/core';
+import { Injector, NgModule, inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -27,8 +27,12 @@ import {createCustomElement} from "@angular/elements";
   bootstrap: [AppComponent],
 })
 export class AppModule {
+  private injector = inject(Injector);
+
   ngDoBootstrap() {}
-  constructor(private injector: Injector) {
+  constructor() {
+    const injector = this.injector;
+
 // 将组件转换为自定义元素
     const customElement = createCustomElement(AppComponent, { injector });
     // 注册到浏览器自定义元素注册表

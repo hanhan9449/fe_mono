@@ -1,11 +1,4 @@
-import {
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { InputItemStateType } from '../input-item/input-item-state.type';
 import { KeyboardService } from '../keyboard/keyboard.service';
 import {
@@ -41,10 +34,9 @@ import {InputItemComponent} from "../input-item/input-item.component";
 export class InputExerciseComponent
   implements OnInit, AfterViewChecked, AfterViewInit
 {
-  constructor(
-    private keyboardService: KeyboardService,
-    private speedCountService: SpeedCountService
-  ) {}
+  private keyboardService = inject(KeyboardService);
+  private speedCountService = inject(SpeedCountService);
+
 
   @ViewChild('container') container?: ElementRef<HTMLDivElement>;
 

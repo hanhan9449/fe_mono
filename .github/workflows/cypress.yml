@@ -1,5 +1,5 @@
 name: Cypress End-to-end tests
-on: [push, pull_request]
+on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
@@ -10,7 +10,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
       - name: Install pnpm

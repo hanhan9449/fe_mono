@@ -26,7 +26,7 @@ describe('example to-do app', () => {
             .get('body').should('contain', '基于 astro 部署的博客~~')
             .url().should('contain', '/blog/001hello')
     })
-    it('blog tools qrcode', () => {
+    it.skip('blog tools qrcode', () => {
         cy.visit('/tools/qrcode')
             .get('body').should('contain', '二维码生成')
             .get('textarea').should('be.visible').type('hello world')

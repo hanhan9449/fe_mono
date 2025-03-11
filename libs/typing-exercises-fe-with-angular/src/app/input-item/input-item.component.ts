@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
 import { InputItemStateType } from './input-item-state.type';
 import {NgClass} from "@angular/common";
 
@@ -11,26 +11,27 @@ import {NgClass} from "@angular/common";
   styleUrls: ['./input-item.component.css']
 })
 export class InputItemComponent implements OnInit {
-  @Input() ch!: string;
-  @Input() state?: InputItemStateType = 'grey';
+  readonly ch = input.required<string>();
+  readonly state = input<InputItemStateType | undefined>('grey');
 
   constructor() {}
 
   ngOnInit(): void {}
 
   getState(): InputItemStateType {
-    if (!this.state) {
+    const state = this.state();
+    if (!state) {
       return 'grey';
     }
-    return this.state;
+    return state;
   }
   getCh(): string {
     if (this.isSpace()) {
       return '␣';
     }
-    return this.ch;
+    return this.ch();
   }
   isSpace(): boolean {
-    return this.ch === ' ';
+    return this.ch() === ' ';
   }
 }

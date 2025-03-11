@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { VariantType } from './variant.type';
 import { defaultKeyboardItemConfig } from '../keyboard/keyboard.config';
 import { ColorType } from './keyboard-item.interface';
@@ -27,13 +27,13 @@ import { AsyncPipe, NgClass } from "@angular/common";
 export class KeyboardItemComponent implements OnInit, OnDestroy {
   private keyboardService = inject(KeyboardService);
 
-  @Input() line1?: string = '';
-  @Input() line2?: string;
-  @Input() width?: number = defaultKeyboardItemConfig.width;
-  @Input() height?: number = defaultKeyboardItemConfig.height;
-  @Input() color?: ColorType = 'milk-white';
-  @Input() variant?: VariantType = 'one-line';
-  @Input() flag?: string[];
+  readonly line1 = input<string | undefined>('');
+  readonly line2 = input<string>();
+  readonly width = input<number | undefined>(defaultKeyboardItemConfig.width);
+  readonly height = input<number | undefined>(defaultKeyboardItemConfig.height);
+  readonly color = input<ColorType | undefined>('milk-white');
+  readonly variant = input<VariantType | undefined>('one-line');
+  readonly flag = input<string[]>();
 
   isActive$?: Observable<boolean>;
   obsList = [] as Subscription[];
@@ -43,32 +43,35 @@ export class KeyboardItemComponent implements OnInit, OnDestroy {
   }
 
   shouldShowLine2(): boolean {
-    return this.variant === 'two-line';
+    return this.variant() === 'two-line';
   }
 
   getColor(): ColorType {
-    if (!this.color) {
+    const color = this.color();
+    if (!color) {
       return 'milk-white';
     }
-    return this.color;
+    return color;
   }
 
   getWidth(): number {
-    if (!this.width) {
+    const width = this.width();
+    if (!width) {
       return defaultKeyboardItemConfig.width;
     }
-    return this.width;
+    return width;
   }
 
   getHeight(): number {
-    if (!this.height) {
+    const height = this.height();
+    if (!height) {
       return defaultKeyboardItemConfig.height;
     }
-    return this.height;
+    return height;
   }
 
   checkKeyIsActive(): void {
-    let filterFn = (code: string) => !!this.flag?.includes(code);
+    let filterFn = (code: string) => !!this.flag()?.includes(code);
     const currentCodeOnlyKeyDown$ = this.keyboardService.keyDownCode$.pipe(
       filter(filterFn)
     );

@@ -16,5 +16,7 @@ jobs:
         run: npm i -g pnpm
       - name: Install Deps
         run: pnpm i
+      - name: Install cypress
+        run: npx cypress install
       - name: Run E2E Tests
         run: npx turbo test:ci

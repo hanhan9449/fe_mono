@@ -43,4 +43,8 @@ describe('example to-do app', () => {
 
 
     })
+    it('blog tools busy-me', () => {
+        cy.visit('/tools/busy-me')
+            .get('body').should('contain', '我有拖延症!')
+    })
 })

@@ -17,12 +17,15 @@ import netlify from "@astrojs/netlify";
 
 import sitemap from "@astrojs/sitemap";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), // alpinejs(),
   // preact(),
   react(), svelte(),
   solidJs(), sitemap()],
-  adapter: netlify(),
-  site: 'https://next.hanhan9449.top'
+  adapter: cloudflare(),
+  site: 'https://next.hanhan9449.top',
+  output: 'server'
 });

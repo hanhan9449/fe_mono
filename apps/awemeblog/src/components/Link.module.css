@@ -1,0 +1,8 @@
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+.link:link, .link:visited, .link:hover, .link:active, .link:focus {
+    text-decoration: none;
+    color: inherit; /* 或自定义颜色 */
+}

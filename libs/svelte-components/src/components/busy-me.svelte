@@ -63,8 +63,8 @@
     }
 
     @font-face {
-        font-family: 'Smiley Sans';
-        src: url('https://github.com/hanhan9449/images/blob/main/DouyinSansBold.ttf?raw=true');
+        font-family: 'DouyinSansBold';
+        src: url('https://r2-oss.hanhan9449.top/DouyinSansBold.ttf');
         font-display: block;
     }
 
@@ -73,7 +73,7 @@
     }
     .t1 {
         font-size: 10vw;
-        font-family: 'Smiley Sans';
+        font-family: 'DouyinSansBold';
         letter-spacing: 1vw;
         color: var(--text-color1);
     }

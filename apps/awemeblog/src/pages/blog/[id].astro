@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import MainLayout from "../../layouts/MainLayout.astro";
+export const prerender = true;
 // 1. 为每个集合条目生成一个新路径
 export async function getStaticPaths() {
     const posts = await getCollection('mdx');

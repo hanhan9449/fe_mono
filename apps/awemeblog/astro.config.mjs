@@ -17,12 +17,24 @@ import netlify from "@astrojs/netlify";
 
 import sitemap from "@astrojs/sitemap";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx(), // alpinejs(),
   // preact(),
   react(), svelte(),
   solidJs(), sitemap()],
-  adapter: netlify(),
-  site: 'https://next.hanhan9449.top'
+  adapter: cloudflare(),
+  site: 'https://next.hanhan9449.top',
+  output: 'server',
+  vite: {
+    resolve: {
+      // Use react-dom/server.edge instead of react-dom/server.browser for React 19.
+      // Without this, MessageChannel from node:worker_threads needs to be polyfilled.
+      alias: import.meta.env.PROD && {
+        "react-dom/server": "react-dom/server.edge",
+      },
+    },
+  },
 });

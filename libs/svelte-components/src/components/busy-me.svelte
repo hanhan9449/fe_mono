@@ -29,9 +29,7 @@
     }
 </script>
 
-<svelte:head>
-    <title>{title}</title>
-</svelte:head>
+
 {@html colorVariable}
 <main class="main">
     <span class="t1">{title}</span>

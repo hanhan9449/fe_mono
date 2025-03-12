@@ -21,7 +21,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [mdx(), // alpinejs(),
   // preact(),
-  react(), // svelte()
+  react(), svelte(),
   solidJs(), sitemap()],
   adapter: netlify(),
   site: 'https://next.hanhan9449.top'

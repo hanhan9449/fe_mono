@@ -1,10 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import {QrCodeWithInput} from '@hanhan9449/solid-component'
+import MainLayout from "../../layouts/MainLayout.astro";
 ---
 
-<Layout>
+<MainLayout title="二维码生成">
 
 
 <QrCodeWithInput client:only="solid"/>
-</Layout>
+</MainLayout>

@@ -7,6 +7,15 @@ const realTitle = title ? `${titlePrefix}-${title}` : titlePrefix
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXFEKVY8B4"></script>
+		<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-MXFEKVY8B4');
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -14,15 +23,7 @@ const realTitle = title ? `${titlePrefix}-${title}` : titlePrefix
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<title>{realTitle}</title>
 	</head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-MXFEKVY8B4"></script>
-	<script is:inline>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
 
-	gtag('config', 'G-MXFEKVY8B4');
-	</script>
 	<body>
 		<slot />
 	</body>

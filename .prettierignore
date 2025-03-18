@@ -1,0 +1,14 @@
+dist/
+build/
+output/
+coverage/
+*.min.*
+*.svg
+*.png
+*.log
+.DS_Store
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.angular/

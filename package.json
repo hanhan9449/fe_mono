@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prettier": "pnpx prettier . --write"
+    "prettier": "pnpx prettier@latest . --write"
   },
   "keywords": [],
   "packageManager": "pnpm@10.6.2",

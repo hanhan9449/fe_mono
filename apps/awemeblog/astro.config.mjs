@@ -30,18 +30,20 @@ const sentryIntegration = sentry({
   },
 });
 
-
-
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), // alpinejs(),
-  // preact(),
-  react(), svelte(),
-  solidJs(), sitemap(),
-      sentryIntegration],
+  integrations: [
+    mdx(), // alpinejs(),
+    // preact(),
+    react(),
+    svelte(),
+    solidJs(),
+    sitemap(),
+    sentryIntegration,
+  ],
   adapter: cloudflare(),
-  site: 'https://next.hanhan9449.top',
-  output: 'server',
+  site: "https://next.hanhan9449.top",
+  output: "server",
   vite: {
     resolve: {
       // Use react-dom/server.edge instead of react-dom/server.browser for React 19.

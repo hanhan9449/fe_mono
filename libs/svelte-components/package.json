@@ -15,9 +15,7 @@
       "import": "./src/index.ts",
       "require": "./dist/index.js"
     },
-
-      "./files/*": "./dist/*"
-
+    "./files/*": "./dist/*"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",

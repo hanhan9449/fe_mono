@@ -8,9 +8,8 @@ describe('SpeedCountComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [SpeedCountComponent]
-})
-    .compileComponents();
+      imports: [SpeedCountComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SpeedCountComponent);
     component = fixture.componentInstance;

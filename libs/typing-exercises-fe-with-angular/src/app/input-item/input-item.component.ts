@@ -1,14 +1,12 @@
 import { Component, OnInit, input } from '@angular/core';
 import { InputItemStateType } from './input-item-state.type';
-import {NgClass} from "@angular/common";
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-input-item',
   templateUrl: './input-item.component.html',
-  imports: [
-    NgClass
-  ],
-  styleUrls: ['./input-item.component.css']
+  imports: [NgClass],
+  styleUrls: ['./input-item.component.css'],
 })
 export class InputItemComponent implements OnInit {
   readonly ch = input.required<string>();

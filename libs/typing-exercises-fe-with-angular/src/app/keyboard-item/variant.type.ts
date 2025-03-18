@@ -1,1 +1,1 @@
-export type VariantType = 'one-line' | 'two-line'
+export type VariantType = 'one-line' | 'two-line';

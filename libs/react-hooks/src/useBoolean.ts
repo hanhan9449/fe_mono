@@ -1,11 +1,11 @@
-import {useState} from "react";
+import { useState } from "react";
 
 export function useBoolean(defaultValue = false) {
-    const [value, setValue] = useState(defaultValue)
+  const [value, setValue] = useState(defaultValue);
 
-    function setTo(next: boolean) {
-        setValue(!!next)
-    }
+  function setTo(next: boolean) {
+    setValue(!!next);
+  }
 
-    return [value, setTo] as const
+  return [value, setTo] as const;
 }

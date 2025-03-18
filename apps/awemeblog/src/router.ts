@@ -1,4 +1,4 @@
 export const ROUTER = {
-    '/blog': '',
-    '/tools': []
-}
+  "/blog": "",
+  "/tools": [],
+};

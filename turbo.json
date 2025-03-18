@@ -8,8 +8,7 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
-    "test:ci": {
-    },
+    "test:ci": {},
     "dev": {
       "dependsOn": ["^build"],
       "persistent": true,

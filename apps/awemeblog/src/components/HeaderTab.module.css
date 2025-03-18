@@ -1,12 +1,10 @@
 .item {
-
-    padding: 6px 8px;
-    border-radius: 4px;
-
+  padding: 6px 8px;
+  border-radius: 4px;
 }
 .item:hover {
-    background: rgba(139, 139, 139, 0.1);
+  background: rgba(139, 139, 139, 0.1);
 }
 .item-list {
-    gap: 4px;
+  gap: 4px;
 }

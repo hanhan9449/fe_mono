@@ -1,4 +1,12 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, inject, viewChild } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  inject,
+  viewChild,
+} from '@angular/core';
 import { InputItemStateType } from '../input-item/input-item-state.type';
 import { KeyboardService } from '../keyboard/keyboard.service';
 import {
@@ -16,27 +24,21 @@ import {
   tap,
 } from 'rxjs';
 import { SpeedCountService } from '../speed-count/speed-count.service';
-import { AsyncPipe, NgClass } from "@angular/common";
-import {CaretComponent} from "../caret/caret.component";
-import {InputItemComponent} from "../input-item/input-item.component";
+import { AsyncPipe, NgClass } from '@angular/common';
+import { CaretComponent } from '../caret/caret.component';
+import { InputItemComponent } from '../input-item/input-item.component';
 
 @Component({
   selector: 'app-input-exercise',
   templateUrl: './input-exercise.component.html',
-  imports: [
-    NgClass,
-    AsyncPipe,
-    CaretComponent,
-    InputItemComponent
-],
-  styleUrls: ['./input-exercise.component.css']
+  imports: [NgClass, AsyncPipe, CaretComponent, InputItemComponent],
+  styleUrls: ['./input-exercise.component.css'],
 })
 export class InputExerciseComponent
   implements OnInit, AfterViewChecked, AfterViewInit
 {
   private keyboardService = inject(KeyboardService);
   private speedCountService = inject(SpeedCountService);
-
 
   readonly container = viewChild<ElementRef<HTMLDivElement>>('container');
 
@@ -69,7 +71,7 @@ export class InputExerciseComponent
       const inputBlur$ = fromEvent(container.nativeElement, 'blur');
       this.focusState$ = inputFocus$.pipe(
         map((_) => true),
-        mergeWith(inputBlur$.pipe(map((_) => false)))
+        mergeWith(inputBlur$.pipe(map((_) => false))),
       );
     }
     this.focusState$?.pipe(filter((b) => !b)).subscribe((_) => {
@@ -91,7 +93,7 @@ export class InputExerciseComponent
         if (this.start === this.current) {
           this.speedCountService.startTimerCount();
         }
-      })
+      }),
     );
     keyboardChar$.subscribe((ch) => {
       if (ch !== this.strings[this.current]) {

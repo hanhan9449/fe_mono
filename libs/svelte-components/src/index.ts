@@ -1,3 +1,3 @@
-import BusyMe from './components/busy-me.svelte'
+import BusyMe from "./components/busy-me.svelte";
 
-export {BusyMe}
+export { BusyMe };

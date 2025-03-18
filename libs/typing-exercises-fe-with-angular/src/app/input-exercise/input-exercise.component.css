@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  font-family: 'my-times', "Times New Roman", serif;
+  font-family: "my-times", "Times New Roman", serif;
 }
 
 .container:focus {
@@ -17,17 +17,17 @@
 }
 
 @font-face {
-  font-family: 'my-times';
-  src: local("Times New Roman"), local('Times'), url("src/assets/fonts/times.ttf");
+  font-family: "my-times";
+  src:
+    local("Times New Roman"), local("Times"), url("src/assets/fonts/times.ttf");
 }
-
 
 .blur {
   filter: blur(4px);
 }
 
 .info1 {
-  margin:auto;
+  margin: auto;
 }
 
 .info-panel {

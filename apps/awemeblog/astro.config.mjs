@@ -25,7 +25,7 @@ const sentryIntegration = sentry({
       replaysSessionSampleRate: 0,
       replaysOnErrorSampleRate: 0,
       sourceMapsUploadOptions: {
-        project: "javascript-astro",
+        project: "awemeblog-astro",
         authToken: process.env.SENTRY_AUTH_TOKEN,
       },
     })

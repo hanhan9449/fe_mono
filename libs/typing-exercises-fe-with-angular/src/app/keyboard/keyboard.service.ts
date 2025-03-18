@@ -13,7 +13,7 @@ export class KeyboardService implements OnInit, OnDestroy {
 
   constructor() {
     this.keyDown$ = fromEvent<KeyboardEvent>(window, 'keydown').pipe(
-      tap((e) => e.preventDefault())
+      tap((e) => e.preventDefault()),
     );
     this.keyup$ = fromEvent<KeyboardEvent>(window, 'keyup');
     this.keyDownCode$ = this.keyDown$.pipe(pluck('code'));

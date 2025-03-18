@@ -1,12 +1,12 @@
-import {throttle, ThrottleSettings} from "lodash-es"
-import {AnyFn} from "./type";
-import {useLatestFn} from "./useLatestFn";
-import {useMemo} from "react";
+import { throttle, ThrottleSettings } from "lodash-es";
+import { AnyFn } from "./type";
+import { useLatestFn } from "./useLatestFn";
+import { useMemo } from "react";
 
 const throttleSettings: ThrottleSettings = {
-    leading: true,
-    trailing: false,
-}
+  leading: true,
+  trailing: false,
+};
 
 /**
  * @publicApi
@@ -14,6 +14,6 @@ const throttleSettings: ThrottleSettings = {
  * @param ms
  */
 export function useThrottle<F extends AnyFn>(fn: F, ms: number) {
-    const latestFn = useLatestFn(fn)
-    return useMemo(() => throttle(latestFn, ms, throttleSettings), [ms])
+  const latestFn = useLatestFn(fn);
+  return useMemo(() => throttle(latestFn, ms, throttleSettings), [ms]);
 }

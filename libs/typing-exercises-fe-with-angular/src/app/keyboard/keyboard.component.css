@@ -12,10 +12,9 @@
 }
 
 .last-line {
-
 }
 .logo {
   margin-left: 17px;
   margin-right: -26px;
-  filter: contrast(0) brightness(.9) grayscale(1);
+  filter: contrast(0) brightness(0.9) grayscale(1);
 }

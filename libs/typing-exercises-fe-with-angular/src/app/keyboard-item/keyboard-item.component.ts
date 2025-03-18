@@ -13,16 +13,13 @@ import {
   Subscription,
   tap,
 } from 'rxjs';
-import { AsyncPipe, NgClass } from "@angular/common";
+import { AsyncPipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-keyboard-item',
   templateUrl: './keyboard-item.component.html',
-  imports: [
-    NgClass,
-    AsyncPipe
-],
-  styleUrls: ['./keyboard-item.component.css']
+  imports: [NgClass, AsyncPipe],
+  styleUrls: ['./keyboard-item.component.css'],
 })
 export class KeyboardItemComponent implements OnInit, OnDestroy {
   private keyboardService = inject(KeyboardService);
@@ -73,15 +70,15 @@ export class KeyboardItemComponent implements OnInit, OnDestroy {
   checkKeyIsActive(): void {
     let filterFn = (code: string) => !!this.flag()?.includes(code);
     const currentCodeOnlyKeyDown$ = this.keyboardService.keyDownCode$.pipe(
-      filter(filterFn)
+      filter(filterFn),
     );
     const currentCodeOnlyKeyUp$ = this.keyboardService.keyUpCode$.pipe(
-      filter(filterFn)
+      filter(filterFn),
     );
 
     this.isActive$ = merge(
       currentCodeOnlyKeyDown$.pipe(map((_) => true)),
-      currentCodeOnlyKeyUp$.pipe(map((_) => false))
+      currentCodeOnlyKeyUp$.pipe(map((_) => false)),
     ).pipe(distinctUntilChanged(), share());
   }
 

@@ -6,11 +6,16 @@
   --hhkb-keyboard-key-grey-color: rgb(158, 161, 155);
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle, rgb(250 240 230 /1), rgb( 250 240 230 /.8))
+  background: radial-gradient(
+    circle,
+    rgb(250 240 230 /1),
+    rgb(250 240 230 /0.8)
+  );
 }

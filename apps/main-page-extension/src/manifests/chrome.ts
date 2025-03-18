@@ -1,3 +1,3 @@
-import {edgeAndChromeManifest} from "./edgeAndChromeConfig";
+import { edgeAndChromeManifest } from "./edgeAndChromeConfig";
 
-console.log(JSON.stringify(edgeAndChromeManifest))
+console.log(JSON.stringify(edgeAndChromeManifest));

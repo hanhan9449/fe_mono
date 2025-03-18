@@ -26,7 +26,7 @@ export class SpeedCountService {
     this.timer$ = this.timerStart$.pipe(
       switchMap(() => interval(100)),
       takeUntil(this.timerEnd$),
-      repeat()
+      repeat(),
     );
   }
 

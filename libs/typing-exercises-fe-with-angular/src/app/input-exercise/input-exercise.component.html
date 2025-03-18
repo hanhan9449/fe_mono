@@ -1,16 +1,23 @@
-<div class="container" #container tabindex="-1" [ngClass]="{blur: !(focusState$|async)}" autofocus>
-
-  @for (ch of testText.slice(start,end).split(''); track ch; let index = $index) {
+<div
+  class="container"
+  #container
+  tabindex="-1"
+  [ngClass]="{ blur: !(focusState$ | async) }"
+  autofocus
+>
+  @for (
+    ch of testText.slice(start, end).split("");
+    track ch;
+    let index = $index
+  ) {
     @if (index == current) {
       <app-caret></app-caret>
     }
-    <app-input-item [ch]="ch"
-    [state]="getState(index)"></app-input-item>
+    <app-input-item [ch]="ch" [state]="getState(index)"></app-input-item>
   }
 </div>
 <div class="info-panel">
-
-  @if (!(focusState$|async)) {
+  @if (!(focusState$ | async)) {
     <p class="info1">Click to activate...</p>
   }
 </div>

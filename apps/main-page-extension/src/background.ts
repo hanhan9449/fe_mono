@@ -1,3 +1,3 @@
-import {DEBUG} from "./tools/simple-logger";
+import { DEBUG } from "./tools/simple-logger";
 
-DEBUG('background.js work nice~~')
+DEBUG("background.js work nice~~");

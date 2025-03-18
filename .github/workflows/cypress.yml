@@ -17,6 +17,6 @@ jobs:
       - name: Install Deps
         run: pnpm i
       - name: Install cypress
-        run: npx cypress install --force
+        run: npx cypress@14.1.0 install --force
       - name: Run E2E Tests
         run: npx turbo test:ci

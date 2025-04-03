@@ -4,3 +4,4 @@ export * from "./src/useDebounce";
 export * from "./src/useThrottle";
 export * from "./src/useBoolean";
 export * from "./src/useCompositionState";
+export * from './src/useAsyncEffect'

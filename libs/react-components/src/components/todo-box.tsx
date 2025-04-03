@@ -2,7 +2,7 @@ import { BoxProps } from "../interfaces";
 import {} from '@hanhan9449/common-utils'
 import { BoxImplManager } from "../utils/boxImplManager";
 export function BoxTodo(props: BoxProps) {
-    return <span style={{background: 'red'}}>TODO:{props.data.type}</span>
+    return <span style={{background: 'red'}}>TODO:{props.data?.type}</span>
 }
 export function isDev() {
     // @ts-ignore

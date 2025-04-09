@@ -1,0 +1,17 @@
+---
+const debug_info = {
+    mode: import.meta.env.MODE,
+    ssr: import.meta.env.SSR,
+    dev: import.meta.env.DEV,
+    prod: import.meta.env.PROD
+}
+---
+<footer style="width: 100%; min-height: 20vh;background: #f3e8ff; padding-top: 12px; padding-left: 12px;">
+    <section>
+
+    <h3>debug_info</h3>
+    <pre>
+        <code>{JSON.stringify(debug_info, undefined, 2)}</code>
+    </pre>
+    </section>
+</footer>

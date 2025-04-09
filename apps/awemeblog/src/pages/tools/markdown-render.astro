@@ -6,9 +6,7 @@ import MainLayout from '../../layouts/MainLayout.astro'
 
 <MainLayout>
 
-    <div>DEV:{import.meta.env.DEV}</div>
-    <div>PROD:{import.meta.env.PROD}</div>
-    <div></div>
+
 
 <MarkdownBoxWithConvert data={md} client:only="react"/>
 </MainLayout>

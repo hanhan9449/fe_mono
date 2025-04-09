@@ -1,6 +1,6 @@
 ---
-import { HeaderTab } from "./solid/HeaderTab";
-import { Link } from "./solid/Link";
+import { HeaderTab } from "../solid/HeaderTab";
+import { Link } from "../solid/Link";
 import {getCollection} from "astro:content";
 
 async function getRouters() {
@@ -19,6 +19,10 @@ async function getRouters() {
             {
                 name: '打字练习',
                 url: '/tools/typing-exercises'
+            },
+            {
+                name: 'markdown-renderer',
+                url: '/tools/markdown-render'
             }
         ]
     }

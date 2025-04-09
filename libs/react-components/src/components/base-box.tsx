@@ -33,7 +33,7 @@ function BoxCode(props: BoxProps) {
 function BoxLink(props: BoxProps) {
     return <a href={props.data?.url}>{props.children}</a>
 }
-function BoxThematicBreak(props: BoxProps) {
+function BoxThematicBreak(_props: BoxProps) {
     return <hr />
 }
 function BoxInlineCode(props: BoxProps) {

@@ -21,7 +21,8 @@
     "mermaid": "^11.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@hanhan9449/common-utils": "workspace:*"
+    "@hanhan9449/common-utils": "workspace:*",
+    "@hanhan9449/react-hooks": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

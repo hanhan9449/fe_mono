@@ -1,4 +1,4 @@
-import { LegacyRef, MutableRefObject, useLayoutEffect, useRef } from "react";
+import {  MutableRefObject, useLayoutEffect } from "react";
 import { useBoolean } from "./useBoolean";
 
 export function useCompositionState(ref: MutableRefObject<HTMLElement | null>) {
@@ -13,10 +13,10 @@ export function useCompositionState(ref: MutableRefObject<HTMLElement | null>) {
       return;
     }
     setHasSet(true);
-    ref.current.addEventListener("compositionstart", (e) => {
+    ref.current.addEventListener("compositionstart", () => {
       setB(true);
     });
-    ref.current.addEventListener("compositionend", (e) => {
+    ref.current.addEventListener("compositionend", () => {
       setB(false);
     });
   });

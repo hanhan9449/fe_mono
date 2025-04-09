@@ -1,0 +1,12 @@
+---
+import md from '../../assets/markdown-test.md?raw'
+import { MarkdownBoxWithConvert } from '../../components/react/MarkdownBoxWithConvert'
+import MainLayout from '../../layouts/MainLayout.astro'
+import {webLightTheme,FluentProvider} from "@fluentui/react-components";
+---
+
+<MainLayout>
+
+
+<MarkdownBoxWithConvert data={md} client:only="react"/>
+</MainLayout>

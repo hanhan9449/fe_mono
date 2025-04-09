@@ -24,7 +24,7 @@ const realTitle = title ? `${titlePrefix}-${title}` : titlePrefix
 		<title>{realTitle}</title>
 	</head>
 
-	<body>
+	<body class="main-body">
 		<slot />
 	</body>
 </html>
@@ -40,5 +40,9 @@ const realTitle = title ? `${titlePrefix}-${title}` : titlePrefix
 		font-family: 'DouyinSansBold';
 		src: url('https://r2-oss.hanhan9449.top/DouyinSansBold.ttf');
 		font-display: block;
+	}
+	.main-body {
+		display: flex;
+		flex-direction: column;
 	}
 </style>

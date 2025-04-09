@@ -35,9 +35,13 @@ export default defineConfig({
   integrations: [
     mdx(), // alpinejs(),
     // preact(),
-    react(),
+    react({
+      include: ['**/react/*']
+    }),
     svelte(),
-    solidJs(),
+    solidJs({
+      include: ['**/solid/*', '**/solid-component/**']
+    }),
     sitemap(),
     sentryIntegration,
   ],

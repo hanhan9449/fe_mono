@@ -40,7 +40,7 @@ export default defineConfig({
     }),
     svelte(),
     solidJs({
-      include: ['**/solid/*']
+      include: ['**/solid/*', '**/solid-component/**']
     }),
     sitemap(),
     sentryIntegration,

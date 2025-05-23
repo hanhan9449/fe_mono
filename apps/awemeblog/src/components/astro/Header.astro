@@ -2,6 +2,7 @@
 import { HeaderTab } from "../solid/HeaderTab";
 import { Link } from "../solid/Link";
 import {getCollection} from "astro:content";
+import {groupBy} from 'lodash-es'
 
 async function getRouters() {
     const posts = await getCollection('mdx');
@@ -26,12 +27,14 @@ async function getRouters() {
             }
         ]
     }
+    const postChildrenSortByYears =  groupBy(posts.map(post => ({
+        name: post.data.title,
+        pubDate: post.data.pubDate,
+        url: `/blog/${post.id}`
+    })), it => it.pubDate.getFullYear())
     return [{
         name: '文章',
-        children: posts.map(post => ({
-            name: post.data.title,
-            url: `/blog/${post.id}`
-        }))
+        childrenWithYears: postChildrenSortByYears
     },tools]
 }
 const routers = await getRouters()

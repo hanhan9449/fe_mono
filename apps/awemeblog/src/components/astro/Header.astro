@@ -31,7 +31,7 @@ async function getRouters() {
         name: post.data.title,
         pubDate: post.data.pubDate,
         url: `/blog/${post.id}`
-    })), it => it.pubDate.getFullYear())
+    })), it => it.pubDate.getFullYear()+ '.'+String(it.pubDate.getMonth() + 1).padStart(2, '0'))
     return [{
         name: '文章',
         childrenWithYears: postChildrenSortByYears

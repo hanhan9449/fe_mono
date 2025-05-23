@@ -60,7 +60,7 @@ export function HeaderTab(props: HeaderTabProps) {
                         class={styles["item-list"]}
                     >
                         {/*{JSON.stringify(props.data.childrenWithYears, undefined, 2)}*/}
-                        {Object.entries(props.data.childrenWithYears).sort((a,b) => b[0] - a[0]).map(([year, dataList]) => (
+                        {Object.entries(props.data.childrenWithYears ?? {}).sort((a,b) => b[0] - a[0]).map(([year, dataList]) => (
                             <>
                                 <div style={{color: 'gray', 'text-align': 'center', 'font-size': '11px'}}>{year}</div>
                                 {dataList?.map((data) => (

@@ -14,10 +14,18 @@ export async function getStaticPaths() {
 // 2. 对于你的模板，你可以直接从 prop 获取条目
 const { post } = Astro.props;
 const { Content } = await render(post);
+function formatDate(date: any) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份从0开始
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
 ---
 
 <MainLayout>
     <h1>{post.data.title}</h1>
+    <p>发布日期：{formatDate(post.data.pubDate)}</p>
 
 <Content />
 </MainLayout>

@@ -36,6 +36,7 @@ export function HeaderTab(props: HeaderTabProps) {
           <div
             style={{
               "min-width": "120px",
+                "width": "max-content",
               display: "flex",
               "flex-direction": "column",
               position: "absolute",

@@ -31,18 +31,19 @@
     "@hanhan9449/typing-exercises-fe-with-angular": "workspace:*",
     "@sentry/astro": "^9.6.0",
     "@types/alpinejs": "^3.13.11",
+    "@types/lodash-es": "latest",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "alpinejs": "^3.14.8",
     "astro": "^5.4.3",
+    "lodash-es": "latest",
     "preact": "^10.26.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sharp": "^0.34.2",
     "solid-js": "^1.9.5",
     "svelte": "^5.22.6",
-    "typescript": "^5.8.2",
-    "lodash-es": "latest",
-    "@types/lodash-es": "latest"
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "cypress": "^14.1.0",

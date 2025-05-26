@@ -1,9 +1,9 @@
 ---
 
-import Layout from "../layouts/Layout.astro";
 import {JumpConfirmModal} from "../components/solid/JumpConfirmModal";
+import MainLayout from "../layouts/MainLayout.astro";
 
 ---
-<Layout title="站外跳转提示">
+<MainLayout title="站外跳转提示">
     <JumpConfirmModal client:load />
-</Layout>
+</MainLayout>

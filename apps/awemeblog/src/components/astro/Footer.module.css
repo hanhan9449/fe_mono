@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    min-height: 10vh;
+    border-top: 1px solid #ccc;
+    padding: 4px;
+    padding-bottom: 36px;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    flex-shrink: 0;
+    justify-content: center;
+    gap: 4px;
+    color: #726f6f;
+}
+.split {
+    height: 1em;
+    border-left: 1px solid #ccc;
+}
+
+.hidden {
+    clip-path: circle(1px);
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}

@@ -1,4 +1,6 @@
 ---
+import styl from './Footer.module.css'
+import {ReactViewCounter} from '../react/ViewCounter'
 const debug_info = {
     mode: import.meta.env.MODE,
     ssr: import.meta.env.SSR,
@@ -6,12 +8,21 @@ const debug_info = {
     prod: import.meta.env.PROD
 }
 ---
-<footer style="width: 100%; min-height: 20vh;background: #f3e8ff; padding-top: 12px; padding-left: 12px;">
-    <section>
+<footer
+        class={styl.container}
+>
+    <section class={styl.hidden}>
 
-    <h3>debug_info</h3>
-    <pre>
+        <h3>debug_info</h3>
+        <pre>
         <code>{JSON.stringify(debug_info, undefined, 2)}</code>
     </pre>
+    </section>
+    <section>
+        <div>awemeblog 2025 ~ {(new Date()).getFullYear()}</div>
+    </section>
+    <div class={styl.split}/>
+    <section>
+        <ReactViewCounter client:load />
     </section>
 </footer>

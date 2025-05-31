@@ -41,11 +41,11 @@ const routers = await getRouters()
 
 ---
 
-<header class="flex pl-1 pr-2 bg-[#bec5ff] pt-2 pb-1 gap-1 cursor-pointer">
+<header class="flex pl-1 pr-2 bg-[var(--page-bg-4)] pt-2 pb-1 gap-1 cursor-pointer">
     <Link target="/">
 
 
-    <div class="font-[DouyinSansBold]  text-2xl">AwemeBlog</div>
+    <div class="font-[DouyinSansBold]  text-2xl text-[var(--page-text-2)] ">AwemeBlog</div>
     </Link>
     {routers.map(router => (
         <HeaderTab data={router} client:load/>

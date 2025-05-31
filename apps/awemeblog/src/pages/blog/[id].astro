@@ -24,9 +24,9 @@ function formatDate(date: any) {
 ---
 
 <MainLayout title={post.data.title}>
-    <div class="paper-container">
+    <div class="paper-container bg-[var(--page-bg-8)] overflow-auto">
         <h1>{post.data.title}</h1>
-        <p>发布日期：{formatDate(post.data.pubDate)}</p>
+        <p class="text-[var(--page-text-5)] text-sm">发布日期：{formatDate(post.data.pubDate)}</p>
         <hr/>
 
         <Content/>

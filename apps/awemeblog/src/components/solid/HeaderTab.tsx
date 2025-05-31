@@ -28,7 +28,7 @@ export function HeaderTab(props: HeaderTabProps) {
 
     return (
         <div
-            className={'px-2 py-1 rounded bg-black/5'}
+            className={'px-2 py-1 rounded bg-black/5 text-[var(--page-text-5)]'}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -37,7 +37,7 @@ export function HeaderTab(props: HeaderTabProps) {
               <div className={'relative'}
               >
                 <div
-                  className={'min-w-[120px] w-max flex flex-col absolute bg-white p-2 rounded-lg border-1 border-solid border-gray-200 z-1 max-h-[50vh] overflow-auto gap-1'}
+                  className={'min-w-[120px] w-max flex flex-col absolute   bg-[var(--page-bg-9)] p-2 rounded-lg border-1 border-solid border-gray-200 z-1 max-h-[50vh] overflow-auto gap-1'}
                 >
                   {Object.entries(props.data.childrenWithYears ?? {}).sort((a,b) => b[0] - a[0]).map(([year, dataList]) => (
                     <>
@@ -68,7 +68,7 @@ interface HeaderTabItemProps {
 function HeaderTabItem(props: HeaderTabItemProps) {
     return (
         <Link target={props.data.url}>
-            <div className={'px-2 py-1.5 rounded  hover:bg-gray-400/10'}>{props.data.name}</div>
+            <div className={'px-2 py-1.5 rounded  hover:bg-gray-400/10 text-[var(--page-text-5)]'}>{props.data.name}</div>
         </Link>
     );
 }

@@ -48,7 +48,7 @@ export function MarkdownBoxWithConvert(props: {data: string}) {
         </div>
         <label htmlFor={id}>远程地址：</label>
 
-        <input id={id} style={{width: 'fit-content'}} value={url!} onChange={(e) => setUrl(e.target.value)} />
+        <input class={'w-fit'} id={id}  value={url!} onChange={(e) => setUrl(e.target.value)} />
         <div>
             <label>loop</label>
             <input checked={loop} onChange={() => setLoop(p => !p)} type={'checkbox'}/>

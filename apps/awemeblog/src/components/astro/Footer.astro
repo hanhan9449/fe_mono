@@ -1,28 +1,29 @@
 ---
-import styl from './Footer.module.css'
-import {ReactViewCounter} from '../react/ViewCounter'
+import { ReactViewCounter } from "../react/ViewCounter";
 const debug_info = {
-    mode: import.meta.env.MODE,
-    ssr: import.meta.env.SSR,
-    dev: import.meta.env.DEV,
-    prod: import.meta.env.PROD
-}
+  mode: import.meta.env.MODE,
+  ssr: import.meta.env.SSR,
+  dev: import.meta.env.DEV,
+  prod: import.meta.env.PROD
+};
 ---
 <footer
-        class={styl.container}
+  class={" w-full min-h-[10vh] border-t border-t-solid border-gray-300 p-1 pb-9 flex items-center justify-center gap-1 flex-shrink-0 overflow-auto text-gray-500 "}
 >
-    <section class={styl.hidden}>
+  <section class={"hidden"}>
 
-        <h3>debug_info</h3>
-        <pre>
+    <h3>debug_info</h3>
+    <pre>
         <code>{JSON.stringify(debug_info, undefined, 2)}</code>
     </pre>
-    </section>
-    <section>
-        <div>awemeblog 2025 ~ {(new Date()).getFullYear()}</div>
-    </section>
-    <div class={styl.split}/>
-    <section>
-        <ReactViewCounter client:load />
-    </section>
+  </section>
+  <section>
+    <div>awemeblog 2025 ~ {(new Date()).getFullYear()}</div>
+  </section>
+  <div class={'border-l-solid border-l border-l-gray-200 h-[1em]'}
+
+  />
+  <section>
+    <ReactViewCounter client:load />
+  </section>
 </footer>

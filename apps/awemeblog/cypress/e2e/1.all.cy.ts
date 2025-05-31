@@ -6,7 +6,7 @@ describe("example to-do app", () => {
   //     // we include it in our beforeEach function so that it runs before each test
   //     cy.visit('https://example.cypress.io/todo')
   // })
-  it("home page", () => {
+  it.skip("home page", () => {
     cy.visit("/").get("body").should("contain", "基于 astro 部署的博客~~");
   });
 

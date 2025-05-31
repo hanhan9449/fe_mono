@@ -41,40 +41,19 @@ const routers = await getRouters()
 
 ---
 
-<header class="header">
+<header class="flex pl-1 pr-2 bg-[#bec5ff] pt-2 pb-1 gap-1 cursor-pointer">
     <Link target="/">
 
 
-    <div class="header-title">AwemeBlog</div>
+    <div class="font-[DouyinSansBold]  text-2xl">AwemeBlog</div>
     </Link>
     {routers.map(router => (
         <HeaderTab data={router} client:load/>
     ))}
-    <div class="space"></div>
+    <div class="mr-auto"></div>
     <Link client:load target="https://github.com/hanhan9449/fe_mono">
         <img width="30px" height="30px" src="https://r2-oss.hanhan9449.top/github.png"/>
 
     </Link>
     
 </header>
-
-<style>
-    .header {
-        display: flex;
-        padding-left: 4px;
-        padding-right: 8px;
-        background: #bec5ff;
-        padding-top: 8px;
-        padding-bottom: 4px;
-        gap: 4px;
-        cursor: pointer;
-    }
-    .header-title {
-        font-family: 'DouyinSansBold';
-        font-size: 1.5rem;
-       
-    }
-    .space {
-         margin-right: auto;
-    }
-</style>

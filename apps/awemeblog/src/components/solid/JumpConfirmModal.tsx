@@ -13,23 +13,11 @@ export function JumpConfirmModal() {
   };
   return (
     <div
-      style={{
-        background: "#fff6f6",
-        padding: "8px",
-        border: "1px solid red",
-        display: "flex",
-        "flex-direction": "column",
-        "border-radius": "8px",
-        "max-width": "500px",
-      }}
+      className="bg-[#fff6f6] p-2 border border-red-500 flex flex-col rounded-lg max-w-[500px]"
     >
       <div>你接下来要访问的网页非本站内容，请注意安全</div>
       <div
-        style={{
-          "margin-top": "8px",
-          "margin-bottom": "4px",
-          "font-size": "10px",
-        }}
+        className="mt-2 mb-1 text-xs"
       >
         {targetUrl()}
       </div>

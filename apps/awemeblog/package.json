@@ -43,7 +43,8 @@
     "sharp": "^0.34.2",
     "solid-js": "^1.9.5",
     "svelte": "^5.22.6",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "unocss": "^66.1.2"
   },
   "devDependencies": {
     "cypress": "^14.1.0",

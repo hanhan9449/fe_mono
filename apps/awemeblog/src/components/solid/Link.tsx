@@ -1,4 +1,3 @@
-import styles from "./Link.module.css";
 interface LinkProps {
   target: string;
   children: any;
@@ -15,7 +14,7 @@ export function Link(props: LinkProps) {
     }
   };
   return (
-    <a class={styles.link} href={props.target} onClick={handleClick}>
+    <a className={'no-underline text-inherit hover:text-inherit focus:text-inherit'} href={props.target} onClick={handleClick}>
       {props.children}
     </a>
   );

@@ -19,6 +19,8 @@ import sitemap from "@astrojs/sitemap";
 
 import sentry from "@sentry/astro";
 import cloudflare from "@astrojs/cloudflare";
+import UnoCSS from 'unocss/astro'
+
 const sentryIntegration = sentry({
   dsn: "https://8c46c1788ebe5f44f8a7d27c67952beb@o4508999636942848.ingest.us.sentry.io/4508999640547328",
   tracesSampleRate: 0,
@@ -44,6 +46,7 @@ export default defineConfig({
     }),
     sitemap(),
     sentryIntegration,
+    UnoCSS(),
   ],
   adapter: cloudflare(),
   site: "https://next.hanhan9449.top",

@@ -1,0 +1,161 @@
+.paper-container {
+  /* 基础主题变量 */
+  --primary-color: #2c3e50; /* 主文本色 */
+  --secondary-color: #7f8c8d; /* 次级文本色 */
+  --accent-color: #3498db; /* 强调色 */
+  --border-color: #ecf0f1; /* 边框色 */
+  --code-bg: #f8f9fa; /* 代码块背景 */
+  --blockquote-bg: #f4f7f9; /* 引用块背景 */
+  --table-header-bg: #f8f9fa; /* 表格头部背景 */
+  padding: 0 30px;
+
+  /* 标题样式 */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 1.5em 0 0.8em;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 2.2em;
+    //border-bottom: 3px solid var(--accent-color);
+    //padding-bottom: 0.3em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  /* 代码块样式 */
+  pre {
+    //background-color: var(--code-bg);
+    border-radius: 8px;
+    padding: 1.2em;
+    overflow-x: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 1.5em 0;
+  }
+
+  code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    background-color: var(--code-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+  pre code {
+    background-color: unset;
+
+  }
+
+  /* 引用块样式 */
+  blockquote {
+    background-color: var(--blockquote-bg);
+    border-left: 4px solid var(--accent-color);
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    color: var(--secondary-color);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* 列表样式 */
+  ul, ol {
+    padding-left: 1.8em;
+    margin: 1em 0;
+  }
+
+  li {
+    margin: 0.5em 0;
+    line-height: 1.6;
+  }
+
+  ul ul, ol ol, ul ol, ol ul {
+    margin: 0.5em 0;
+  }
+
+  /* 任务列表 */
+  .task-list-item {
+    list-style-type: none;
+    margin-left: -1.3em;
+  }
+
+  .task-list-item-checkbox {
+    margin-right: 0.6em;
+    position: relative;
+    top: 2px;
+  }
+
+  /* 表格样式 */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th {
+    background-color: var(--table-header-bg);
+    font-weight: 600;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* 图片样式 */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1.5em 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  /* 链接样式 */
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(52, 152, 219, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: #2980b9;
+    border-bottom-color: currentColor;
+  }
+
+  /* 水平线样式 */
+  hr {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2em 0;
+    position: relative;
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    pre {
+      border-radius: 6px;
+      padding: 1em;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+}

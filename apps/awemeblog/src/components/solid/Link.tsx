@@ -1,3 +1,4 @@
+import styl from './LInk.module.css'
 interface LinkProps {
   target: string;
   children: any;
@@ -14,8 +15,9 @@ export function Link(props: LinkProps) {
     }
   };
   return (
-    <a className={'no-underline text-inherit hover:text-inherit focus:text-inherit'} href={props.target} onClick={handleClick}>
+    <a className={`no-underline text-inherit hover:text-inherit focus:text-inherit relative w-full ${styl.link}`} href={props.target} onClick={handleClick}>
       {props.children}
+      <div className={styl.svgWave}></div>
     </a>
   );
 }

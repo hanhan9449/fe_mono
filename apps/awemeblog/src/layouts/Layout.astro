@@ -3,6 +3,7 @@ const {title } = Astro.props
 const titlePrefix = 'AwemeBlog'
 const realTitle = title ? `${titlePrefix}-${title}` : titlePrefix
 import '../assets/css/common.css'
+
 ---
 
 <!doctype html>
@@ -23,9 +24,16 @@ import '../assets/css/common.css'
 
       gtag('config', 'G-MXFEKVY8B4');
     </script>
+    <script>
+      import {generateColorSchemes, injectCssVariables} from "@hanhan9449/common-utils/css";
+      const cssVariable = generateColorSchemes()
+      injectCssVariables(cssVariable)
+      console.log(cssVariable)
+    </script>
+
 	</head>
 
-	<body class="main-body">
+	<body class="main-body ">
 		<slot />
 	</body>
 </html>

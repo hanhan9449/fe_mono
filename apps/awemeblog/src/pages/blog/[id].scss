@@ -1,14 +1,15 @@
 .paper-container {
   /* 基础主题变量 */
-  --primary-color: #2c3e50; /* 主文本色 */
-  --secondary-color: #7f8c8d; /* 次级文本色 */
+  --primary-color: var(--page-text-3); /* 主文本色 */
+  --secondary-color: var(--page-text-2); /* 次级文本色 */
   --accent-color: #3498db; /* 强调色 */
   --border-color: #ecf0f1; /* 边框色 */
   --code-bg: #f8f9fa; /* 代码块背景 */
   --blockquote-bg: #f4f7f9; /* 引用块背景 */
   --table-header-bg: #f8f9fa; /* 表格头部背景 */
   padding: 0 30px;
-
+  line-height: 1.7;
+  color: var(--page-text-6);
   /* 标题样式 */
   h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);

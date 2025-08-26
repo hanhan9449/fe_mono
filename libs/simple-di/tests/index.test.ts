@@ -14,13 +14,28 @@ class Class2 {}
 class Singleton1 {}
 
 @Injectable()
+export class LazyWithoutForwardTo {
+  name = 'lazy'
+  sayName(prefix: string) {
+    return `(${prefix}):(${this.name})`
+  }
+}
+
+@Injectable()
+export class Container1 {
+  constructor(
+    @Lazy(LazyWithoutForwardTo) public lazyWithoutForwardTo: LazyableType<LazyWithoutForwardTo>
+  ) {}
+}
+
+@Injectable()
 class ParentClass {
   constructor(
     public class1: Class1,
     public class2: Class2,
     public singleton1: Singleton1,
     public singleton2: Singleton1,
-    @Lazy(FooInterface) public foo: LazyableType<FooInterface>
+    @Lazy(FooInterface) public foo: LazyableType<FooInterface>,
   ) {}
 
   sayHi() {
@@ -57,13 +72,22 @@ describe('lib testing suite', () => {
   describe('forward', () => {
     test('forwardTo work nice', () => {
       const instance = simpleContainer.resolve(ParentClass)
-      const namePromise = instance.foo.name
-      const helloMethodPromise = instance.foo.hello
-      expect(namePromise).instanceOf(Promise)
-      expect(helloMethodPromise).instanceOf(Promise)
-      expect(namePromise).resolves.toEqual('foo')
+      const nameGetter = instance.foo.name
+      const helloMethodGetter = instance.foo.hello
+      expect(nameGetter).instanceOf(Function)
+      expect(helloMethodGetter).instanceOf(Function)
+      expect(nameGetter()).resolves.toEqual('foo')
+      expect(helloMethodGetter()).resolves.toEqual('hello: foo')
       // expect(helloMethodPromise).resolves.toBe(Function)
       
+    })
+
+    test('Lazy without forwardTo work nice', () => {
+      const instance = simpleContainer.resolve(Container1)
+      const namePromise = instance.lazyWithoutForwardTo.name()
+      const sayNamePromise = instance.lazyWithoutForwardTo.sayName('hello')
+      expect(namePromise).resolves.toEqual('lazy')
+      expect(sayNamePromise).resolves.toEqual('(hello) (lazy)')
     })
 
   })

@@ -1,18 +1,22 @@
-import { simpleContainer } from '@aha/simple-di';
+import { simpleContainer } from '@ahajs/simple-di';
 import './App.css';
-import { Bar } from './model/busiess';
+import { Bar, Container1 } from './model/busiess';
 function sleep(ms: number) {
   return new Promise(resolve => {
     setTimeout(resolve, ms)
   })
 }
 async function main()  {
+  const container1 = simpleContainer.resolve(Container1)
+  console.log(container1)
+  console.log(container1.lazyWithoutForwardTo.name())
+  console.log(await container1.lazyWithoutForwardTo.sayName('prefix'))
   const bar = simpleContainer.resolve(Bar)
   console.log(bar)
-  await sleep(5000)
-  console.log(bar.foo.name)
-  console.log(await bar.foo.name)
-  ;(await bar.foo.hello)()
+  sleep(2000)
+  console.log(await bar.foo.name())
+  console.log(await bar.foo.hello())
+
 }
 main()
 

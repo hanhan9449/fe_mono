@@ -46,44 +46,53 @@ class Container {
     }
   }
 
-  private resolveAsync(factory: ForwardToFactory, parentProvideId: string) {
+  private resolveAsync(
+    factory: Type<any> | ForwardToFactory,
+    parentProvideId: string,
+  ) {
     let instance: any;
+    const isTypeUtil = (a: typeof factory): a is Type<any> =>
+      typeof a?.prototype?.constructor === 'function';
 
     const handler = {
       get: (target: Type<any>, property: any, receiver: any) => {
-        return new Promise(async (resolve) => {
-          if (!instance) {
-            const type = await factory();
-            const paramTypes: any[] =
-              Reflect.getMetadata(DESIGN_PARAM_TYPES_TOKEN, type) || [];
-            const provideId = Reflect.getMetadata(PROVIDE_ID_TOKEN, type);
-            const injections = [];
-            const lazyLoadList =
-              Reflect.getMetadata(LAZY_TYPE_LIST_TOKEN, type) || [];
-            for (let i = 0; i < paramTypes.length; ++i) {
-              let paramType = paramTypes[i];
-              const lazyLoadFactory = this.forwardProviders.get(
-                lazyLoadList[i],
-              );
-              if (lazyLoadFactory) {
-                paramType = lazyLoadFactory;
+        const getter = (...params: any[]) => {
+          return new Promise(async (resolve) => {
+            if (!instance) {
+              const type = isTypeUtil(factory) ? factory : await factory();
+              const paramTypes: any[] =
+                Reflect.getMetadata(DESIGN_PARAM_TYPES_TOKEN, type) || [];
+              const provideId = Reflect.getMetadata(PROVIDE_ID_TOKEN, type);
+              const injections = [];
+              const lazyLoadList =
+                Reflect.getMetadata(LAZY_TYPE_LIST_TOKEN, type) || [];
+              for (let i = 0; i < paramTypes.length; ++i) {
+                let paramType = paramTypes[i];
+                const lazyLoadFactory =
+                  this.forwardProviders.get(lazyLoadList[i]) || lazyLoadList[i];
+                if (lazyLoadFactory) {
+                  paramType = lazyLoadFactory;
+                }
+                const instance = this.resolve(
+                  paramType,
+                  provideId,
+                  !!lazyLoadFactory,
+                );
+                injections.push(instance);
               }
-              const instance = this.resolve(paramType, provideId);
-              injections.push(instance);
+              instance = new type(...injections);
             }
-            instance = new type(...injections);
-          }
-          const value = instance[property];
-          if (value?.call) {
-            const f = async function (...inputs: any[]) {
-              await value.apply(instance, inputs);
-            };
-            resolve(f);
-            return;
-          } else {
-            resolve(value);
-          }
-        });
+            const value = instance[property];
+            if (value?.apply) {
+              const result = await value.apply(instance, params);
+              resolve(result);
+              return;
+            } else {
+              resolve(value);
+            }
+          });
+        };
+        return getter;
       },
     };
     const proxy = new Proxy({} as any, handler);
@@ -98,11 +107,12 @@ class Container {
     const lazyLoadList = Reflect.getMetadata(LAZY_TYPE_LIST_TOKEN, type) || [];
     for (let i = 0; i < paramTypes.length; ++i) {
       let paramType = paramTypes[i];
-      const lazyLoadFactory = this.forwardProviders.get(lazyLoadList[i]);
+      const lazyLoadFactory =
+        this.forwardProviders.get(lazyLoadList[i]) || lazyLoadList[i];
       if (lazyLoadFactory) {
         paramType = lazyLoadFactory;
       }
-      const instance = this.resolve(paramType, provideId);
+      const instance = this.resolve(paramType, provideId, !!lazyLoadFactory);
       injections.push(instance);
     }
 
@@ -111,56 +121,19 @@ class Container {
     return instance;
   }
 
-  private resolveInstance(
-    typeOrFactory: Type<any> | ForwardToFactory,
-    params: any[],
-    isLazyLoad: boolean,
-  ) {
-    const isType = (a: typeof typeOrFactory): a is Type<any> => !isLazyLoad;
-    const now = performance.now();
-    if (isType(typeOrFactory)) {
-      return new typeOrFactory(...params);
-    }
-    let instance: any;
-    debugger;
-
-    const handler = {
-      get: (target: Type<any>, property: any, receiver: any) => {
-        return new Promise(async (resolve) => {
-          console.log('Get handler', typeOrFactory);
-          const type = await typeOrFactory();
-          instance = new type(...params);
-          const value = instance[property];
-          debugger;
-          if (value?.call) {
-            const f = async function (...inputs: any[]) {
-              await value.apply(instance, inputs);
-            };
-            resolve(f);
-          } else {
-            resolve(value);
-          }
-        });
-      },
-    };
-    const proxy = new Proxy({} as any, handler);
-    return proxy;
-  }
-
   public resolve<T>(
     target: Type<T> | ForwardToFactory,
     parentProvideId: string = 'root',
+    isLazyLoad = false,
   ): T {
-    debugger;
     const type = this.resolveType(target, parentProvideId);
-    const isType = (a: typeof type): a is Type<any> =>
-      typeof type?.prototype?.constructor === 'function';
+    const isNotLazyLoadUtil = (a: typeof type): a is Type<any> => !isLazyLoad;
     const singleton = this.resolveSingleton(type);
     if (singleton) {
       return singleton;
     }
 
-    if (isType(type)) {
+    if (isNotLazyLoadUtil(type)) {
       let instance = this.resolveSync(type, parentProvideId);
       this.registerSingleton(type, instance);
       return instance;

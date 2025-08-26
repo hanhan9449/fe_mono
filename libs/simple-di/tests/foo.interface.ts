@@ -9,3 +9,4 @@ export class FooInterface {
     throw new Error('NOT IMPLEMENT!')
   }
 }
+

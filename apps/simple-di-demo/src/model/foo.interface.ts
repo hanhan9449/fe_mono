@@ -1,4 +1,4 @@
-import { ForwardTo, Injectable } from '@aha/simple-di';
+import { ForwardTo, Injectable } from '@ahajs/simple-di';
 
 @Injectable()
 @ForwardTo(() => import('./foo').then((it) => it.FooImpl))

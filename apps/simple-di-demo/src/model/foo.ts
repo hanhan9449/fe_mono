@@ -1,10 +1,11 @@
-import { Injectable } from '@aha/simple-di';
+import { Injectable } from '@ahajs/simple-di';
 import type { FooInterface } from './foo.interface';
 
 @Injectable()
 export class FooImpl implements FooInterface {
   name: string = 'foo';
-  hello(): void {
+  hello() {
     console.log(`hello: ${this.name}`);
+    return 'world'
   }
 }

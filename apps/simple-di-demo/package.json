@@ -14,7 +14,7 @@
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "@aha/simple-di": "workspace:*"
+    "@ahajs/simple-di": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
